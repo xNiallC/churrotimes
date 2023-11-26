@@ -5,11 +5,15 @@ import {
 import {
   ChakraProvider,
   extendTheme,
-  ThemeConfig
+  ThemeConfig,
+  Box,
 } from '@chakra-ui/react'
 import './App.css';
 import Destinations from "./components/Destinations";
+import Destination from "./components/Destination";
+import Park from "./components/Park";
 import NavBar from "./components/NavBar";
+import { useLocation, Route } from "wouter";
 
 const queryClient = new QueryClient();
 
@@ -24,11 +28,23 @@ const theme: ThemeConfig = extendTheme({
 });
 
 const App = () => {
+  const [location] = useLocation();
+  console.log(location);
   return (
-    <>
+    <Box
+      backgroundColor="brand.gray"
+    >
       <NavBar />
-      <Destinations />
-    </>
+      <Route path="/">
+        <Destinations />
+      </Route>
+      <Route path="/destinations/:destinationId">
+        <Destination />
+      </Route>
+      <Route path="/parks/:parkId">
+        <Park />
+      </Route>
+    </Box>
   )
 }
 

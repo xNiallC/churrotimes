@@ -3,9 +3,14 @@ import {
   Text,
   IconButton,
 } from '@chakra-ui/react';
-import { MdHome, MdSettings } from "react-icons/md";
+import { MdHome, MdArrowBack } from "react-icons/md";
+import {
+  Link, useLocation,
+} from "wouter";
 
 const NavBar = () => {
+  const [location] = useLocation();
+  console.log(location);
   return (
     <Flex
       as="nav"
@@ -17,12 +22,28 @@ const NavBar = () => {
       color="white"
       bg="brand.darkGray"
     >
-      <IconButton
-        aria-label="Home"
-        icon={<MdHome />}
-        colorScheme="white"
-        size="lg"
-      />
+      {location.indexOf('/park/') === 0
+        ? (
+          <IconButton
+            aria-label="Home"
+            icon={<MdHome />}
+            colorScheme="white"
+            size="lg"
+            as={Link}
+            href="/"
+          />
+        ) : (
+          <IconButton
+            aria-label="Home"
+            icon={<MdHome />}
+            colorScheme="white"
+            size="lg"
+            as={Link}
+            href="/"
+          />
+        )
+      }
+
       
       <Text
         fontWeight="bold"
@@ -31,12 +52,13 @@ const NavBar = () => {
         churrotimes
       </Text>
 
-      <IconButton
+      {/* <IconButton
         aria-label="Settings"
         icon={<MdSettings />}
         colorScheme="white"
         size="lg"
-      />
+      /> */}
+      <div style={{ width: 48 }} />
     </Flex>
   )
 };

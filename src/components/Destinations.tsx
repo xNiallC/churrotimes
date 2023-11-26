@@ -1,9 +1,6 @@
 import { Destination } from "src/types";
 import {
-  Flex,
   Stack,
-  Button,
-  Text,
   Icon,
 } from '@chakra-ui/react';
 import { MdArrowRight } from "react-icons/md";
@@ -13,30 +10,24 @@ import {
 import {
   ORLANDO_DESTINATION_SLUGS
 } from 'src/constants';
+import {
+  Link
+} from "wouter";
+import {
+  ListItem
+} from 'src/components/ui';
 
 export const DestinationCard = ({ destination }: { destination: Destination }) => (
-  <Flex
-    direction={{ base: 'row', md: 'row' }}
-    borderRadius="md"
-    backgroundColor="brand.darkGray"
-    paddingY={3}
-    paddingX={4}
-    justify="space-between"
-    align="center"
-  >
-    <Text color="white">
-      {destination.name}
-    </Text>
-    <Button
-      backgroundColor="brand.midGray"
-      color="white"
-      rightIcon={<Icon as={MdArrowRight} />}
-    >
-      Wait times
-    </Button>
-  </Flex>
+  <ListItem
+    title={destination.name}
+    buttonText="Parks"
+    buttonProps={{
+      as: Link,
+      href: `/destinations/${destination.id}`,
+      rightIcon: <Icon as={MdArrowRight} />,
+    }}
+  />
 )
-
 
 const Destinations = () => {
   const { data = [] } = useDestinations();
