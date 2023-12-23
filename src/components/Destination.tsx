@@ -56,6 +56,7 @@ const Destination = () => {
       <HeadingArea
         aboveTitle='DESTINATION'
         title={currDestination.name}
+        goBackLink='/'
       />
       <Stack
         background="brand.gray"

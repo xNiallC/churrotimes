@@ -3,7 +3,7 @@ import {
   Text,
   IconButton,
 } from '@chakra-ui/react';
-import { MdHome, MdArrowBack } from "react-icons/md";
+import { MdHome } from "react-icons/md";
 import {
   Link, useLocation,
 } from "wouter";

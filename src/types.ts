@@ -25,11 +25,13 @@ export type LiveThemeParkEntity = {
   liveData: LiveParkData[];
 };
 
+export type ThemeParkEntityTypes = 'DESTINATION' | 'PARK' | 'SHOW' | 'ATTRACTION' | 'RESTAURANT' | 'RESORT';
+
 export type LiveParkData = {
   id: string;
   name: string;
-  entityType: 'DESTINATION'|'PARK'|'SHOW'|'ATTRACTION'|'RESTAURANT'|'RESORT';
-  status: 'OPERATING';
+  entityType: ThemeParkEntityTypes;
+  status: 'OPERATING' | 'DOWN' | 'CLOSED';
   lastUpdated: string;
   queue: {
     STANDBY: { waitTime: number };
