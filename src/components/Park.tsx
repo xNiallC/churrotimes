@@ -94,8 +94,6 @@ const Park = () => {
   const shows = useMemo(() => getActiveEntities(liveData, 'SHOW'), [liveData]);
   const restaurants = useMemo(() => getActiveEntities(liveData, 'RESTAURANT'), [liveData]);
 
-  console.log(restaurants);
-
   if (status === 'loading') {
     return (
       <LoadingBox text="Loading park..." />

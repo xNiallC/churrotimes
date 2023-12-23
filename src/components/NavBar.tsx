@@ -3,7 +3,7 @@ import {
   Text,
   IconButton,
 } from '@chakra-ui/react';
-import { MdHome } from "react-icons/md";
+import { MdHome, MdInfo } from "react-icons/md";
 import {
   Link, useLocation,
 } from "wouter";
@@ -52,13 +52,14 @@ const NavBar = () => {
         churrotimes
       </Text>
 
-      {/* <IconButton
-        aria-label="Settings"
-        icon={<MdSettings />}
+      <IconButton
+        aria-label="Info"
+        icon={<MdInfo />}
         colorScheme="white"
         size="lg"
-      /> */}
-      <div style={{ width: 48 }} />
+        as={Link}
+        href="/info"
+      />
     </Flex>
   )
 };
